@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from math import exp, factorial
 
-app = Flask(__name__, static_folder='static', template_folder='templates')
+app = Flask(__name__)
 
 def probabilitas_poisson(lam, k):
     return (lam ** k * exp(-lam)) / factorial(k)
