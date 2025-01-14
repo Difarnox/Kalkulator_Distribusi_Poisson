@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    background-image: url('https://img.freepik.com/free-vector/gradient-hexagonal-background_23-2148932756.jpg?t=st=1736855973~exp=1736859573~hmac=f655584f4f7183e5a800d91fe5a34bd40edf94d60164c64ed3de4792f82b28d4&w=900');
+    background: url('https://img.freepik.com/free-vector/gradient-hexagonal-background_23-2148932756.jpg?t=st=1736855973~exp=1736859573~hmac=f655584f4f7183e5a800d91fe5a34bd40edf94d60164c64ed3de4792f82b28d4&w=900');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
