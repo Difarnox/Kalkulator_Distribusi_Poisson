@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Distribusi Poisson untuk Restoran</title>
+    <link rel="icon" href="https://cdn.iconscout.com/icon/free/png-512/free-panda-icon-download-in-svg-png-gif-file-formats--bear-herbivore-fauna-animal-zoo-flat-colors-pack-icons-1358167.png?f=webp&w=512" type="image/png">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h1>Kalkulator Distribusi Poisson untuk Restoran</h1>
+            <form id="poisson-form">
+                <label for="probability_type">Jenis Probabilitas Pesanan</label>
+                <select id="probability_type" name="probability_type" required>
+                    <option value="">Pilih jenis probabilitas</option>
+                    <option value="exact">Tepat sekali x pesanan</option>
+                    <option value="less_than">Kurang dari x pesanan</option>
+                    <option value="at_most">Paling banyak x pesanan</option>
+                    <option value="greater_than">Lebih dari x pesanan</option>
+                    <option value="at_least">Setidaknya x pesanan</option>
+                </select>
+                <br><br>
+                <label for="lam">Rata-rata Pesanan per Jam (𝜆)</label>
+                <input type="number" step="any" id="lam" name="lam" min="1" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46 || event.charCode == 45">
+                <br><br>
+                <label for="x">Jumlah Pesanan (<span class="math-font">𝑥</span>)</label>
+                <input type="number" id="x" name="x" min="1" inputmode="numeric" pattern="[0-9]*" required>
+                <br><br>
+                <div class="button-container">
+                    <button type="reset" onclick="resetPage()">Mengatur ulang</button>
+                    <button type="submit" onclick="calculateResult(event)">Menghitung</button>
+                </div>
+            </form>
+        </div>
+        <div class="description" id="description">
+            <div id="initial-description">
+                <h3>Bagaimana cara menggunakan Kalkulator Distribusi Poisson?</h3>
+                <p>Untuk perhitungan probabilitas pesanan yang diberikan, Anda harus mengikuti langkah-langkah di bawah ini:</p>
+                <ol>
+                    <li>Pilih jenis probabilitas pesanan dari menu drop-down.</li>
+                    <li>Masukkan nilai rata-rata pesanan per jam (𝜆).</li>
+                    <li>Masukkan jumlah pesanan (<span class="math-font">𝑥</span>) (<span class="math-font">𝑥</span> harus positif).</li>
+                    <li>Untuk melihat hasilnya, klik tombol “Menghitung”.</li>
+                    <li>Klik tombol reset dan hapus semua masukan/keluaran.</li>
+                </ol>
+                <h3>Kalkulator Distribusi Poisson untuk Perkiraan Jumlah Pesanan Makanan di Restoran</h3>
+                <p>Kalkulator ini membantu Anda memperkirakan jumlah pesanan makanan yang diterima dalam periode waktu tertentu di restoran Anda. Dengan menggunakan distribusi Poisson, Anda bisa memprediksi probabilitas jumlah pesanan berdasarkan rata-rata tingkat kejadian (𝜆) dan variabel acak Poisson (<span class="math-font">𝑥</span>). Ini sangat berguna untuk manajemen inventaris, perencanaan persediaan bahan makanan, dan memastikan layanan pelanggan yang efisien tanpa kekurangan atau kelebihan stok.</p>
+            </div>
+            <div id="result-description" style="display: none;">
+                <h3><b>Langkah-Langkah Perhitungan:</b></h3>
+                <h3><b>Rumus:</b></h3>
+                <p id="calculation-type" align="center" class="math-font"></p>
+                <p><b>Nilai:</b> <span class="math-font">𝑒</span> = 2.718, <span class="math-font">𝜆</span> = <span id="value-lam"></span>, <span class="math-font">𝑥</span> = <span id="value-x"></span></p>
+                <p><b>Perhitungannya:</b> <span id="calculation-title" class="math-font"></span></p>
+                <div id="calculation-steps" class="math-font"></div>
+                <p>Jadi hasilnya adalah, <span id="final-result-content"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

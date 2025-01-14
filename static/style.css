@@ -1,0 +1,151 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-image: url('https://img.freepik.com/free-vector/gradient-hexagonal-background_23-2148932756.jpg?t=st=1736855973~exp=1736859573~hmac=f655584f4f7183e5a800d91fe5a34bd40edf94d60164c64ed3de4792f82b28d4&w=900');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 1vw; /* Mengurangi padding */
+    font-size: 16px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: calc(100% - 2vw); /* Mengurangi total lebar dengan padding body */
+    margin: 0.5vw auto;
+}
+
+.calculator, .description {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px;
+    max-width: calc(45% - 0vw);
+    margin-bottom: 2px;
+    overflow: auto;
+    text-align: left;
+}
+
+h1, h3 {
+    color: #333;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label, input, select, button {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+}
+
+select, input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 48%;
+}
+
+button[type="reset"] {
+    background-color: #dc3545;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+p, ol {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+ol {
+    margin-left: 20px;
+}
+
+/* Style untuk scrollbar yang lebih kecil dan transparan */
+body::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 123, 255, 0.8);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 123, 255, 1);
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Style untuk scrollbar dalam elemen calculator dan description */
+.calculator::-webkit-scrollbar, .description::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+.calculator::-webkit-scrollbar-thumb, .description::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.8);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.calculator::-webkit-scrollbar-thumb:hover, .description::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(128, 128, 128, 1);
+}
+
+.calculator::-webkit-scrollbar-track, .description::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Media queries untuk responsif */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5vw 1vw;
+    }
+
+    .calculator, .description {
+        width: calc(100% - 2vw);
+        margin-bottom: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+}
